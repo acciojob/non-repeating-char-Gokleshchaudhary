@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Main {
     public static Character firstNonRepeatedChar(String str) {
@@ -20,9 +21,17 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.out.println(firstNonRepeatedChar("aabbcdd")); // Output: 'c'
-        System.out.println(firstNonRepeatedChar("aabbcc")); // Output: null
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine(); // Get input from the user
+
+        Character result = firstNonRepeatedChar(input);
+        if (result != null) {
+            System.out.println("First non-repeated character: " + result);
+        } else {
+            System.out.println("No non-repeated character found.");
+        }
+
+        scanner.close(); // Close the scanner
     }
 }
-const input = prompt("Enter a string");
-alert(firstNonRepeatedChar(input)); 
