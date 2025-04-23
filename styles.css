@@ -1,1 +1,12 @@
 /*  your css code here. If applicable */
+table {
+	width: 200px;
+	text-align: center;
+}
+
+table, th, tr, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 0.5rem 1rem;
+}
+
