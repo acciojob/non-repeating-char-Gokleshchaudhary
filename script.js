@@ -1,28 +1,24 @@
-import java.util.HashMap;
+function firstNonRepeatedChar(str) {
+    let charCount = {};
 
-public class Main {
-    public static Character firstNonRepeatedChar(String str) {
-       
-        HashMap<Character, Integer> charCount = new HashMap<>();
-
-        for (char c : str.toCharArray()) {
-            charCount.put(c, charCount.getOrDefault(c, 0) + 1);
-        }
-
-        for (char c : str.toCharArray()) {
-            if (charCount.get(c) == 1) {
-                return c; 
-            }
-        }
-
-        return null; 
+    // Count the occurrences of each character
+    for (let char of str) {
+        charCount[char] = (charCount[char] || 0) + 1;
     }
 
-    public static void main(String[] args) {
-       
-        System.out.println(firstNonRepeatedChar("aabbcdd")); '
-        System.out.println(firstNonRepeatedChar("aabbcc")); 
-        System.out.println(firstNonRepeatedChar("")); 
-        System.out.println(firstNonRepeatedChar("abcdefg")); 
+    // Find the first non-repeated character
+    for (let char of str) {
+        if (charCount[char] === 1) {
+            return char; // Return the first non-repeated character
+        }
     }
+
+    return null; // Return null if there are no non-repeated characters
 }
+
+// Event listener for the button
+document.getElementById('findCharButton').addEventListener('click', function() {
+    const inputString = document.getElementById('inputString').value;
+    const result = firstNonRepeatedChar(inputString);
+    document.getElementById('output').innerText = result !== null ? result : 'null';
+});
